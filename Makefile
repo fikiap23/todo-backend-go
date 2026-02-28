@@ -100,7 +100,7 @@ migrations-new:
 # -----------------------------------------------------------------------------
 .PHONY: up down restart logs exec
 up:
-	docker compose $(COMPOSE_DEV) up -d --build
+	docker compose $(COMPOSE_DEV) up -d 
 	docker logs -f $(CONTAINER_DEV)
 
 down:
