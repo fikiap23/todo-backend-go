@@ -1,0 +1,35 @@
+# Build stage
+FROM golang:1.24-alpine AS builder
+
+RUN apk add --no-cache git ca-certificates
+
+WORKDIR /app
+
+# Copy dependency files first for better layer caching
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+# Build the binary
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /app/server ./cmd
+# Runtime stage
+FROM alpine:3.21
+
+RUN apk add --no-cache ca-certificates tzdata
+
+WORKDIR /app
+
+# Copy binary from builder
+COPY --from=builder /app/server .
+COPY --from=builder /app/static ./static
+COPY --from=builder /app/templates ./templates
+COPY --from=builder /app/internal/database/migrations ./internal/database/migrations
+
+# Non-root user
+RUN adduser -D -g '' appuser
+USER appuser
+
+EXPOSE 8080
+
+ENTRYPOINT ["./server"]

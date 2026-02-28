@@ -1,0 +1,6 @@
+[build]
+cmd = "go build -buildvcs=false -o ./tmp/main ./cmd"
+bin = "tmp/main"
+delay = 500
+include_ext = ["go"]
+exclude_dir = ["tmp", "vendor"]
