@@ -1,4 +1,4 @@
-# AGENTS.md – Go Boilerplate Backend
+# AGENTS.md – Go Todo Backend
 
 Briefing for AI coding agents working on this codebase.
 

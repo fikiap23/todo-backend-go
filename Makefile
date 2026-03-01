@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile - Go Boilerplate Backend
+# Makefile - Go Todo Backend
 # =============================================================================
 
 COMPOSE_DEV := -f docker-compose.yml
@@ -14,7 +14,7 @@ MIGRATIONS_DIR := ./internal/database/migrations
 # -----------------------------------------------------------------------------
 .PHONY: help
 help:
-	@echo "Go Boilerplate - Available targets:"
+	@echo "Go Todo - Available targets:"
 	@echo ""
 	@echo "  make build          - Build the application binary"
 	@echo "  make run            - Run the application (loads .env if present)"

@@ -1,4 +1,4 @@
-# Go Boilerplate Backend
+# Go Todo Backend
 
 A production-ready Go backend service built with Echo framework, featuring clean architecture, comprehensive middleware, and modern DevOps practices.
 
