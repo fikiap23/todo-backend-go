@@ -106,7 +106,7 @@ func LoadConfig() (*Config, error) {
 	}
 
 	// Override service name and environment from primary config
-	mainConfig.Observability.ServiceName = "boilerplate"
+	mainConfig.Observability.ServiceName = "todo-backend"
 	mainConfig.Observability.Environment = mainConfig.Primary.Env
 
 	// Validate observability config
